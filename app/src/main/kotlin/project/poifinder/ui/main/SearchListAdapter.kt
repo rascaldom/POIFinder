@@ -3,7 +3,6 @@ package project.poifinder.ui.main
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import project.poifinder.R
@@ -32,7 +31,6 @@ class SearchListAdapter : RecyclerView.Adapter<SearchListAdapter.ItemViewHolder>
                 data = item
                 executePendingBindings()
                 root.setOnClickListener {
-                    Toast.makeText(it.context, "${item.title}, $layoutPosition", Toast.LENGTH_SHORT).show()
                     clickListener?.onItemClick(it, item)
                 }
             }
