@@ -14,6 +14,8 @@ const val NAVER_MAP_CLIENT_ID = "co6pcbko80"
 const val NAVER_API_CLIENT_ID = "Siq1gmWMA4epgC0f1rRw"
 const val NAVER_API_CLIENT_SECRET = "htkYqHwh5q"
 
+const val NAVER_MAP_DEFAULT_ZOOM = 14.0
+
 const val CONNECT_TIMEOUT = 10L
 const val WRITE_TIMEOUT = 1L
 const val READ_TIMEOUT = 10L

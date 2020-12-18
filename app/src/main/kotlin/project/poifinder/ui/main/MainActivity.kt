@@ -10,6 +10,7 @@ import com.naver.maps.map.*
 import com.naver.maps.map.overlay.Marker
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import project.poifinder.R
+import project.poifinder.common.NAVER_MAP_DEFAULT_ZOOM
 import project.poifinder.common.base.BaseActivity
 import project.poifinder.data.model.Item
 import project.poifinder.databinding.ActivityMainBinding
@@ -94,7 +95,7 @@ class MainActivity : BaseActivity(), OnMapReadyCallback, SearchListAdapter.ListI
     private fun convertCoordinates(x: Double, y: Double): LatLng = Tm128(x, y).toLatLng()
 
     private fun movePosition(latLng: LatLng) {
-        naverMap.moveCamera(CameraUpdate.scrollTo(latLng).animate(CameraAnimation.Easing))
+        naverMap.moveCamera(CameraUpdate.scrollAndZoomTo(latLng, NAVER_MAP_DEFAULT_ZOOM).animate(CameraAnimation.Easing))
     }
 
     private fun showMarker(latLng: LatLng, title: String) {
