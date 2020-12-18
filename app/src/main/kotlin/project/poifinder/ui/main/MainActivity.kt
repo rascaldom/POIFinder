@@ -11,7 +11,6 @@ import com.naver.maps.map.overlay.Marker
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import project.poifinder.R
 import project.poifinder.common.base.BaseActivity
-import project.poifinder.common.permission.PermissionsCheckHelper
 import project.poifinder.data.model.Item
 import project.poifinder.databinding.ActivityMainBinding
 
@@ -32,9 +31,7 @@ class MainActivity : BaseActivity(), OnMapReadyCallback, SearchListAdapter.ListI
             viewModel = this@MainActivity.viewModel
         }
 
-        if (permissionsCheckHelper.checkPermissions()) {
-            initializeView()
-        }
+        initializeView()
     }
 
     private fun initializeView() {
@@ -63,9 +60,9 @@ class MainActivity : BaseActivity(), OnMapReadyCallback, SearchListAdapter.ListI
     private fun initializeNaverMap() {
         val fm = supportFragmentManager
         val mapFragment = fm.findFragmentById(R.id.map) as MapFragment?
-            ?: MapFragment.newInstance().also {
-                fm.beginTransaction().add(R.id.map, it).commit()
-            }
+                ?: MapFragment.newInstance().also {
+                    fm.beginTransaction().add(R.id.map, it).commit()
+                }
 
         mapFragment.getMapAsync(this)
     }
@@ -111,20 +108,6 @@ class MainActivity : BaseActivity(), OnMapReadyCallback, SearchListAdapter.ListI
 
     override fun onItemClick(view: View, item: Item) {
         setPoiMarker(item)
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        when (requestCode) {
-            PermissionsCheckHelper.PERMISSIONS_REQUEST_CODE -> {
-                if (permissionsCheckHelper.processPermissionsResult(requestCode, permissions, grantResults)) {
-                    initializeView()
-                } else {
-                    finish()
-                }
-
-                return
-            }
-        }
     }
 
 }

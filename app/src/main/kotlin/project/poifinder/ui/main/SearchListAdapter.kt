@@ -50,4 +50,5 @@ class SearchListAdapter : RecyclerView.Adapter<SearchListAdapter.ItemViewHolder>
     interface ListItemClickListener {
         fun onItemClick(view: View, item: Item)
     }
+
 }

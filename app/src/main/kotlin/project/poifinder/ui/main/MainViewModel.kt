@@ -46,7 +46,7 @@ class MainViewModel(private val remote: SearchDataSource) : ViewModel() {
     }
 
     private fun convertItemList(resultList: List<List<Item>>): List<Item> = mutableListOf<Item>().apply {
-        resultList.let{
+        resultList.let {
             for (i in it.indices) {
                 it[i].forEach { item ->
                     add(item)
