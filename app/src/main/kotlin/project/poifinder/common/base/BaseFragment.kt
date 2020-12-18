@@ -1,4 +1,4 @@
-package project.poifinder.project.poifinder.common.base
+package project.poifinder.common.base
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

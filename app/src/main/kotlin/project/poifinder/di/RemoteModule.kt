@@ -1,13 +1,13 @@
-package project.poifinder.project.poifinder.di
+package project.poifinder.di
 
 import org.koin.dsl.module
-import project.poifinder.project.poifinder.data.remote.SampleRemote
-import project.poifinder.project.poifinder.data.remote.SampleRemoteImpl
+import project.poifinder.data.remote.SearchDataSource
+import project.poifinder.data.remote.SearchDataSourceImpl
 
 val remoteModule = module {
 
-    single<SampleRemote> {
-        SampleRemoteImpl(api = get())
+    single<SearchDataSource> {
+        SearchDataSourceImpl(api = get())
     }
 
 }

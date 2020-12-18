@@ -1,13 +1,13 @@
-package project.poifinder.project.poifinder.di
+package project.poifinder.di
 
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
-import project.poifinder.project.poifinder.ui.main.MainViewModel
+import project.poifinder.ui.main.MainViewModel
 
 val viewModelModule = module {
 
     viewModel {
-        MainViewModel(repository = get())
+        MainViewModel(remote = get())
     }
 
 }

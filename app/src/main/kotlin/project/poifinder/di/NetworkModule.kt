@@ -1,13 +1,13 @@
-package project.poifinder.project.poifinder.di
+package project.poifinder.di
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import project.poifinder.BuildConfig
-import project.poifinder.project.poifinder.common.BASE_URL
-import project.poifinder.project.poifinder.common.CONNECT_TIMEOUT
-import project.poifinder.project.poifinder.common.READ_TIMEOUT
-import project.poifinder.project.poifinder.common.WRITE_TIMEOUT
+import project.poifinder.common.BASE_URL
+import project.poifinder.common.CONNECT_TIMEOUT
+import project.poifinder.common.READ_TIMEOUT
+import project.poifinder.common.WRITE_TIMEOUT
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit

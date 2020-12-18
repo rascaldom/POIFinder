@@ -4,7 +4,7 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import project.poifinder.project.poifinder.common.permission.PermissionsCheckHelper
+import project.poifinder.common.permission.PermissionsCheckHelper
 
 open class BaseActivity : AppCompatActivity() {
 

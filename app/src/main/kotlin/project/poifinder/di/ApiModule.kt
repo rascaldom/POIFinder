@@ -1,13 +1,13 @@
-package project.poifinder.project.poifinder.di
+package project.poifinder.di
 
 import org.koin.dsl.module
-import project.poifinder.project.poifinder.data.api.SampleApi
+import project.poifinder.data.api.SearchApi
 import retrofit2.Retrofit
 
 val apiModule = module {
 
     single {
-        get<Retrofit>().create(SampleApi::class.java)
+        get<Retrofit>().create(SearchApi::class.java)
     }
 
 }

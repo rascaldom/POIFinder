@@ -1,4 +1,4 @@
-package project.poifinder.project.poifinder.common.permission
+package project.poifinder.common.permission
 
 import android.Manifest
 import android.content.pm.PackageManager
