@@ -1,10 +1,12 @@
 package project.poifinder.ui.main
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
-import kotlinx.coroutines.Dispatchers
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import project.poifinder.common.SEARCH_RESPONSE_DISPLAY_COUNT
 import project.poifinder.common.SEARCH_RESPONSE_LIST_COUNT
 import project.poifinder.common.SEARCH_RESPONSE_START_POSITION
@@ -13,13 +15,15 @@ import project.poifinder.data.remote.SearchDataSource
 
 class MainViewModel(private val remote: SearchDataSource) : ViewModel() {
 
-    fun getSearchList(query: String) = liveData(Dispatchers.IO) {
-            try {
-                emit(convertItemList(fetch(query, getStartPositionList()).values.toList()))
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
+    private val _list = MutableLiveData<List<Item>>()
+
+    val list: LiveData<List<Item>> get() = _list
+
+    fun getSearchList(query: String) {
+        viewModelScope.launch {
+            _list.value = convertItemList(fetch(query, getStartPositionList()).values.toList())
         }
+    }
 
     private fun getStartPositionList(): MutableIterable<Int> = mutableListOf<Int>().apply {
         var temp = SEARCH_RESPONSE_START_POSITION

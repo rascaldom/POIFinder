@@ -45,9 +45,7 @@ class MainActivity : BaseActivity(), OnMapReadyCallback, SearchListAdapter.ListI
         with (binding.searchBar) {
             setOnQueryTextListener(object : android.widget.SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
-                    viewModel.getSearchList(query ?: "").observe(this@MainActivity, {
-                        retrieveList(it)
-                    })
+                    viewModel.getSearchList(query ?: "")
                     return false
                 }
 
@@ -77,13 +75,6 @@ class MainActivity : BaseActivity(), OnMapReadyCallback, SearchListAdapter.ListI
 
     override fun onMapReady(naverMap: NaverMap) {
         this.naverMap = naverMap
-    }
-
-    private fun retrieveList(list: List<Item>) {
-        (binding.list.adapter as SearchListAdapter).apply {
-            setListItems(list)
-            notifyDataSetChanged()
-        }
     }
 
     private fun setPoiMarker(item: Item) {
